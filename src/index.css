@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #070a13;
+  --text-main: #cbd5e1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, sans-serif;
+  /* Esto asegura que el fondo ocupe siempre toda la altura */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animación de aparición suave para el contenido al cambiar de sección */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo base para los encabezados */
+h1, h2 {
+  color: #ffffff;
+}
+
+/* Asegurar que el scroll se vea bien en diseño oscuro */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070a13;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -20;
+  background:
+    radial-gradient(circle at top, #0f172a 0%, #070a13 60%);
+}
+
+.background span{
+  position:absolute;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#38bdf8;
+  opacity:.3;
+  animation: float linear infinite;
+}
+
+@keyframes float{
+
+  from{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+
+  20%{
+    opacity:.5;
+  }
+
+  80%{
+    opacity:.5;
+  }
+
+  to{
+    transform:translateY(-20vh);
+    opacity:0;
+  }
+
+}
+.cyber-bg{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+/* GRID */
+
+.cyber-bg::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:gridMove 30s linear infinite;
+
+}
+
+/* LINEAS DIAGONALES */
+
+.cyber-bg::after{
+
+    content:"";
+    position:absolute;
+    inset:-200%;
+
+    background:
+
+    repeating-linear-gradient(
+
+        -45deg,
+
+        rgba(56,189,248,.08) 0px,
+
+        rgba(56,189,248,.08) 2px,
+
+        transparent 2px,
+
+        transparent 18px
+
+    );
+
+    animation:diagonalMove 25s linear infinite;
+
+}
+
+@keyframes diagonalMove{
+
+from{
+
+transform:translateX(0) translateY(0);
+
+}
+
+to{
+
+transform:translateX(220px) translateY(220px);
+
+}
+
+}
+
+@keyframes gridMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(50px);
+
+}
+
+}
+
+/* GLOW */
+
+.cyber-glow{
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(59,130,246,.18),
+transparent 70%);
+
+filter:blur(40px);
+
+animation:glowMove 18s ease-in-out infinite alternate;
+
+}
+
+@keyframes glowMove{
+
+0%{
+
+transform:translate(-10%,-10%);
+
+}
+
+100%{
+
+transform:translate(70vw,45vh);
+
+}
+
+}
+
+/* PARTICULAS */
+
+.particle{
+
+position:absolute;
+
+width:2px;
+height:2px;
+
+background:#38bdf8;
+
+border-radius:50%;
+
+box-shadow:0 0 8px #38bdf8;
+
+animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+from{
+
+transform:translateY(120vh);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.7;
+
+}
+
+80%{
+
+opacity:.7;
+
+}
+
+to{
+
+transform:translateY(-20vh);
+
+opacity:0;
+
+}
+
+}

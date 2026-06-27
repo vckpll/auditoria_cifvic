@@ -1,0 +1,26 @@
+.outline-hidden {
+  outline: none;
+}
+
+.image-placeholder {
+  border-radius: 1.75rem;
+  border: 2px dashed rgba(148, 163, 184, 0.5);
+  background: rgba(241, 245, 249, 0.95);
+}
+
+.image-placeholder__content {
+  display: grid;
+  place-items: center;
+  min-height: 11rem;
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 640px) {
+  .image-placeholder__content {
+    min-height: 8rem;
+  }
+}
